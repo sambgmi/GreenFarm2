@@ -1,0 +1,335 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: transparent;
+  z-index: 1000;
+  height: 80px; /* Slightly reduced for better mobile experience */
+  transition: height 0.3s ease;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 100%;
+}
+
+.logo img {
+  width: auto;
+  height: 80px; /* Adjusted to match navbar height */
+  object-fit: contain;
+  max-width: 180px;
+  transition: height 0.3s ease;
+}
+
+.logo span {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Navigation content styles */
+.nav-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Search bar styles - improved responsiveness */
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  border-radius: 25px;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 15px;
+  transition: all 0.3s ease;
+}
+
+.search-bar input {
+  border: none;
+  background: none;
+  outline: none;
+  width: 100%;
+  padding-right: 1rem;
+  color: #000000;
+}
+
+.search-bar input::placeholder {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.search-bar button {
+  background: none;
+  border: none;
+  color: #000000;
+  cursor: pointer;
+}
+
+/* Navigation links styles */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000000;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #4CAF50;
+}
+
+.nav-links a.active {
+  color: #4CAF50;
+}
+
+/* Login button styles */
+.login-btn {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.login-btn:hover {
+  background: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+}
+
+.login-btn.logout {
+    background-color: #ff4444;
+}
+
+.login-btn.logout:hover {
+    background-color: #cc0000;
+}
+
+.login-btn.logout {
+    background-color: #ff4444;
+}
+
+.login-btn.logout:hover {
+    background-color: #cc0000;
+}
+
+/* Mobile menu button */
+.mobile-menu-btn {
+  display: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 100;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 968px) {
+  .navbar {
+    height: 70px;
+  }
+  
+  .mobile-menu-btn {
+    display: block;
+    color: #000000;
+  }
+
+  .nav-content {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 80%;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 100px 30px;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.3s ease-in-out;
+    display: flex;
+    gap: 1.5rem;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+  }
+
+  .nav-content.active {
+    right: 0;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .search-bar {
+    margin: 15px 0;
+    max-width: 100%;
+    width: 90%;
+  }
+  
+  /* Fix for search bar taking up too much space */
+  .nav-content .search-bar {
+    flex: 0 0 auto;
+    order: -1;
+  }
+  
+  /* Ensure other elements have proper spacing */
+  .nav-content .nav-links,
+  .nav-content .login-btn,
+  .nav-content .dashboard-btn,
+  .nav-content .cartIcon {
+    margin: 5px 0;
+  }
+}
+
+/* Small screen adjustments */
+@media screen and (max-width: 480px) {
+  .navbar {
+    height: 60px;
+  }
+  
+  .navbar-container {
+    padding: 0.5rem 1rem;
+  }
+
+  .logo img {
+    height: 50px;
+    max-width: 120px;
+  }
+  
+  .nav-content {
+    padding: 80px 20px 40px;
+  }
+  
+  .search-bar {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  /* Improve spacing in mobile menu */
+  .nav-links {
+    margin-top: 10px;
+    gap: 1.2rem;
+  }
+  
+  .nav-links a {
+    padding: 8px 0;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Extra small devices */
+@media screen and (max-width: 360px) {
+  .navbar {
+    height: 50px;
+  }
+  
+  .logo img {
+    height: 40px;
+    max-width: 100px;
+  }
+  
+  .navbar-container {
+    padding: 0.5rem;
+  }
+}
+
+.search-bar {
+  flex: 1;
+  max-width: 500px;
+  margin: 0 20px;
+}
+
+@media (max-width: 768px) {
+  .search-bar {
+    margin: 10px 0;
+    width: 100%;
+  }
+}
+
+.dashboard-btn {
+    padding: 8px 16px;
+    background-color: #00a152;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.dashboard-btn:hover {
+    background-color: #008142;
+}
+
+.cartIcon {
+    display: flex;
+    align-items: center;
+   
+    transition: color 0.3s ease;
+}
+
+.cartIcon:hover {
+    color: #4CAF50;
+}
+
+
+.mobile-cart-icon {
+  display: none;
+  position: absolute;
+  top: 55%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
+
+.mobile-cart-icon .cartIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #00a152;
+  border-radius: 50%;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 161, 82, 0.3);
+}
+
+.desktop-only {
+  display: inline-flex;
+}
+
+/* Media query for mobile view */
+@media screen and (max-width: 768px) {
+  .mobile-cart-icon {
+    display: block;
+  }
+  
+  .desktop-only {
+    display: none;
+  }
+}
